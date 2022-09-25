@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+    django_gunicorn:
+        volumes:
+          - static:/static
+        env_file:
+           - prod.env
+        build:
+          context: ./
+          dockerfile: prod.Dockerfile
+        ports:
+          - "8000:8000"
+    nginx:
+        build: ./nginx
+        volumes:
+          - static:/static
+        ports:
+          - "80:80"
+        depends_on:
+          - django_gunicorn
+    celery:
+      restart: always
+      build:
+        context: ./
+        dockerfile: celery.prod.Dockerfile
+      command: celery -A backend worker -l info
+      volumes:
+        - ./:/code
+      env_file: prod.env
+      depends_on:
+        - django_gunicorn
+volumes:
+  static:

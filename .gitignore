@@ -1,0 +1,25 @@
+# Environments
+.env
+dev.env
+prod.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+postgres-data/
+media/
+
+.DS_Store
+/.DS_Store
+.idea
+.vscode
+__pycache__
+gunicorn-error.log
+logs
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media

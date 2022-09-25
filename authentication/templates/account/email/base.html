@@ -1,0 +1,90 @@
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Font area -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    {% include 'account/email/partials/styles.html' %}
+    {% include 'account/email/partials/common_styles_with_front_end.html' %}
+    
+</head>
+
+<body>
+    <table class="et-body">
+        <tr>
+            <td>
+                <table class="et-wrapper">
+                    <tr>
+                        <td>
+                            <table class="et-wrapper-inner">
+                                <tr>
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" class="et-table-main">
+                                            <tr>
+                                                <td>
+                                                    <table cellpadding="0" cellspacing="0" border="0" class="et-table-top-section">
+                                                        <tr>
+
+                                                        </tr>
+                                                    </table>
+                                                    <!-- End Table Top Section -->
+                                                    {% block content %}{% endblock %}
+                                                    <!-- End Table Inbox Section -->
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- End Table Main -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" class="et-table-footer">
+                                            <tr>
+                                                <td>
+                                                    <table cellpadding="0" cellspacing="0" border="0" class="et-table-footer-section">
+                                                        <tr>
+                                                            <td>
+{#                                                                <p style="margin-bottom: 10px;">#}
+{#                                                                    <a style="display: inherit; text-align: center;" href="#">#}
+{#                                                                         <img src="https://i.ibb.co/Hg6Fk9P/logo-2.png" alt="logo">                                                                        #}
+{#                                                                    </a>#}
+{#                                                                </p>#}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p style="margin-bottom: 0; color: #000000; text-align: center; font-size: 12px; line-height: 16px;">
+                                                                    &copy; website | address
+                                                                </p>
+                                                                <p style="color: #000000; text-align: center; font-size: 12px; line-height: 16px;">
+                                                                    Need help? Ask at <span style="color:#3F8CFE;">support@website.com</span> | Unsubscribe
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- End Table Footer -->
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- End Wrapper Inner -->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <!-- End Wrapper -->
+</body>
+</html>
