@@ -75,7 +75,6 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'django_celery_results',
     'django_filters',
-    'djstripe',
 
     # Custom apps
     'authentication',
@@ -202,34 +201,26 @@ CELERY_BROKER_URL = env('CELERY_BROKER_URL')
 CELERY_ENABLE_UTC = True
 CELERY_TASK_TRACK_STARTED = True
 
-if CELERY_BROKER_NAME == 'sqs':
-    CELERY_TASK_DEFAULT_QUEUE = env('SQS_QUEUE_NAME')
-    CELERY_BROKER_TRANSPORT_OPTIONS = {
-        'predefined_queues': {
-            CELERY_TASK_DEFAULT_QUEUE: {
-                'url': env('SQS_QUEUE_URL'),
-                'region': env('SQS_QUEUE_REGION'),
-                'access_key_id': env('AWS_ACCESS_KEY_ID'),
-                'secret_access_key': env('AWS_SECRET_ACCESS_KEY'),
-            }
-        }
-    }
+# if CELERY_BROKER_NAME == 'sqs':
+#     CELERY_TASK_DEFAULT_QUEUE = env('SQS_QUEUE_NAME')
+#     CELERY_BROKER_TRANSPORT_OPTIONS = {
+#         'predefined_queues': {
+#             CELERY_TASK_DEFAULT_QUEUE: {
+#                 'url': env('SQS_QUEUE_URL'),
+#                 'region': env('SQS_QUEUE_REGION'),
+#                 'access_key_id': env('AWS_ACCESS_KEY_ID'),
+#                 'secret_access_key': env('AWS_SECRET_ACCESS_KEY'),
+#             }
+#         }
+#     }
 
 CELERY_RESULT_BACKEND = 'django-db'
 
-# Stripe
-STRIPE_TEST_SECRET_KEY = env('STRIPE_TEST_SECRET_KEY')
-STRIPE_LIVE_MODE = env('STRIPE_LIVE_MODE')
-DJSTRIPE_WEBHOOK_SECRET = env('DJSTRIPE_WEBHOOK_SECRET')
-DJSTRIPE_FOREIGN_KEY_TO_FIELD = 'id'
-DJSTRIPE_USE_NATIVE_JSONFIELD = True
-
-
 # AWS
-AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 
 # S3 bucket
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
-AWS_QUERYSTRING_AUTH = env('AWS_QUERYSTRING_AUTH')
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+# AWS_QUERYSTRING_AUTH = env('AWS_QUERYSTRING_AUTH')
