@@ -8,7 +8,7 @@ services:
            - prod.env
         build:
           context: ./
-          dockerfile: prod.Dockerfile
+          dockerfile: dockerfiles/prod.Dockerfile
         ports:
           - "8000:8000"
     nginx:
@@ -23,7 +23,7 @@ services:
       restart: always
       build:
         context: ./
-        dockerfile: celery.prod.Dockerfile
+        dockerfile: dockerfiles/celery.prod.Dockerfile
       command: celery -A backend worker -l info
       volumes:
         - ./:/code

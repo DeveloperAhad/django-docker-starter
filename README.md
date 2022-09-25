@@ -10,3 +10,11 @@ $  docker-compose -f docker-compose.dev.yml build
 $ docker-compose -f docker-compose.prod.yml build -d
 ```
 
+```bash
+# Development environment variables file 
+$ dev.env
+ 
+# Production environment variables file 
+$ prod.env
+```
+

@@ -5,10 +5,10 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /code
 
-COPY requirements.prod.txt /code/
+COPY ../requirements.prod.txt /code/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.prod.txt
-COPY . /code/
+COPY .. /code/
 
-COPY entrypoint.prod.sh /
+COPY ../entrypoint.prod.sh /
 ENTRYPOINT ["sh", "./entrypoint.prod.sh"]
